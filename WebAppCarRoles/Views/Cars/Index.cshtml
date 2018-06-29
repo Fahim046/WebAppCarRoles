@@ -1,0 +1,30 @@
+﻿@model List<WebAppCarRoles.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index of Cars</h2>
+
+@*@if (User.Identity.IsAuthenticated("CreateCar"))*@
+
+
+@*@if (User.IsInRole("CreateCar"))
+    {
+
+        Html.ActionLink("Create a Car", "Create", "Cars");
+
+    }*@
+
+@Html.ActionLink("Create a Car", "Create", "Cars");
+
+<table class="table-bordered table-striped">
+    @foreach (var aCar in Model)
+    {
+        <tr>
+            <td>@aCar.Id</td>
+            <td>@aCar.Name</td>
+            <td>@aCar.Brand</td>
+        </tr>
+    }
+</table>
